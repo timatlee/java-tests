@@ -17,16 +17,13 @@ public class RegExText {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
-        testRegEx("123 Elm Street", Pattern.compile("[\\w\\s\\d]*"));
-
-        testRegEx("123 &Elm Street", Pattern.compile("[\\w\\s\\d]*"));
-
+        testRegEx("123 Elm Street", "[\\w\\s\\d]*");
+        testRegEx("123 &Elm Street", "[\\w\\s\\d]*");
     }
     
     
-    public static void testRegEx(String subject, Pattern r) {
+    public static void testRegEx(String subject, String regexPattern) {
+        Pattern r = Pattern.compile(regexPattern);
         Matcher m = r.matcher(subject);
         
         System.out.println("In string: " + subject);
